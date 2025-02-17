@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { connect } from "@/dbConfig/dbConfig";
-import User from "@/models/userMomdel";
+import { connect } from "../../../../dbConfig/dbConfig";
+import User from "../../../../models/userMomdel";
 import bcryptjs from "bcryptjs";
-import { sendMail } from "@/helper/mailer";
+import { sendMail } from "../../../../helper/mailer";
 
 connect();
 
