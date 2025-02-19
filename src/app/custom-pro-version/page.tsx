@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const PremiumFeature = () => {
   const [question, setQuestion] = useState<string>("");
@@ -14,8 +15,10 @@ const PremiumFeature = () => {
     e.preventDefault();
     try {
       const response = await axios.post("/api/ai-content", { question });
+      toast.success("got the response");
       console.log(response.data.result);
     } catch (error) {
+      toast.error("got error");
       console.log(error);
     }
   };
