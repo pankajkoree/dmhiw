@@ -1,10 +1,14 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
+// api key from gemini
 const gemini_api_key = process.env.API_KEY;
-const googleAI = new GoogleGenerativeAI(gemini_api_key);
+
+const googleAI = new GoogleGenerativeAI(gemini_api_key as string);
 const geminiModel = googleAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-export async function POST(req) {
+const prompt = "tell about nextjs";
+
+export async function GET(req) {
   try {
     const { question } = await req.json();
     if (!question) {
