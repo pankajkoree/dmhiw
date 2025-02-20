@@ -7,6 +7,7 @@ import jwt from "jsonwebtoken";
 connect();
 
 export const POST = async (request: NextRequest) => {
+  const tokenSecret = process.env.TOKEN_SECRET;
   try {
     const reqBody = await request.json();
     const { email, password } = reqBody;
@@ -33,7 +34,7 @@ export const POST = async (request: NextRequest) => {
       loggedIn: true,
     };
 
-    const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET, {
+    const token = await jwt.sign(tokenData, tokenSecret as string, {
       expiresIn: "1d",
     });
 
@@ -57,6 +58,9 @@ export const POST = async (request: NextRequest) => {
 
     return response;
   } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "An unknown occurred" },
+      { status: 500 }
+    );
   }
 };
