@@ -3,9 +3,12 @@
 import { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
 const PremiumFeature = () => {
   const [question, setQuestion] = useState<string>("");
+  const [answer, setAnswer] = useState<string>("");
+  const finalAnswer = answer.replace(/\*{1,2}/g, "");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuestion(e.target.value);
@@ -16,12 +19,13 @@ const PremiumFeature = () => {
     try {
       const response = await axios.post("/api/ai-content", { question });
       toast.success("got the response");
-      console.log(response.data.result);
+      setAnswer(response?.data?.result);
     } catch (error) {
       toast.error("got error");
       console.log(error);
     }
   };
+
   return (
     <div className="relative flex left-8">
       <form onSubmit={getResonseFromAI}>
@@ -43,6 +47,8 @@ const PremiumFeature = () => {
           Get response
         </button>
       </form>
+
+      <TextGenerateEffect words={finalAnswer} />
     </div>
   );
 };

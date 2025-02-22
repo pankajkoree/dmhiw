@@ -5,7 +5,7 @@ import { NextRequest } from "next/server";
 const gemini_api_key = process.env.API_KEY;
 
 const googleAI = new GoogleGenerativeAI(gemini_api_key as string);
-const geminiModel = googleAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+const geminiModel = googleAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
 // const prompt = "tell about nextjs";
 

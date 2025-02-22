@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { motion, stagger, useAnimate } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export const TextGenerateEffect = ({
@@ -15,46 +15,38 @@ export const TextGenerateEffect = ({
   duration?: number;
 }) => {
   const [scope, animate] = useAnimate();
-  let wordsArray = words.split(" ");
-  useEffect(() => {
-    animate(
-      "span",
-      {
-        opacity: 1,
-        filter: filter ? "blur(0px)" : "none",
-      },
-      {
-        duration: duration ? duration : 1,
-        delay: stagger(0.2),
-      }
-    );
-  }, [scope.current]);
 
-  const renderWords = () => {
-    return (
-      <motion.div ref={scope}>
-        {wordsArray.map((word, idx) => {
-          return (
-            <motion.span
-              key={word + idx}
-              className="dark:text-white text-black opacity-0"
-              style={{
-                filter: filter ? "blur(10px)" : "none",
-              }}
-            >
-              {word}{" "}
-            </motion.span>
-          );
-        })}
-      </motion.div>
-    );
-  };
+  useEffect(() => {
+    if (!words) return; // Prevent running animation on empty words
+
+    animate("span", { opacity: 0, filter: "blur(10px)" }, { duration: 0 }); // 👈 Reset animation first
+
+    setTimeout(() => {
+      animate(
+        "span",
+        { opacity: 1, filter: filter ? "blur(0px)" : "none" },
+        { duration: duration, delay: (i) => i * 0.2 }
+      );
+    }, 50); // 👈 Slight delay ensures animation resets before restarting
+  }, [words]);
 
   return (
     <div className={cn("font-bold", className)}>
       <div className="mt-4">
-        <div className=" dark:text-white text-black text-2xl leading-snug tracking-wide">
-          {renderWords()}
+        <div className="dark:text-white text-black text-2xl leading-snug tracking-wide">
+          <motion.div ref={scope}>
+            {words.split(" ").map((word, idx) => (
+              <motion.span
+                key={word + idx}
+                className="dark:text-white text-black opacity-0"
+                style={{
+                  filter: filter ? "blur(10px)" : "none",
+                }}
+              >
+                {word}{" "}
+              </motion.span>
+            ))}
+          </motion.div>
         </div>
       </div>
     </div>
