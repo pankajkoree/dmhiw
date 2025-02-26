@@ -14,12 +14,17 @@ const Signup = () => {
 
       {/* email starts here */}
       <div>
-        <label htmlFor="username">Username</label>
-        <input type="text" id="username" />
+        <label htmlFor="email">Email</label>
+        <input type="text" id="email" />
       </div>
       {/* email ends here */}
 
-
+      {/* email starts here */}
+      <div>
+        <label htmlFor="password">Email</label>
+        <input type="text" id="email" />
+      </div>
+      {/* email ends here */}
     </div>
   );
 };
