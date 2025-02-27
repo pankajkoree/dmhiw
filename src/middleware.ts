@@ -8,7 +8,8 @@ export const middleware = (request: NextRequest) => {
     if (token?.value) {
       return NextResponse.next();
     } else {
-      return NextResponse.redirect(new URL("/login", request.url));
+      return NextResponse.next();
+      // return NextResponse.redirect(new URL("/login", request.url));
     }
   }
 

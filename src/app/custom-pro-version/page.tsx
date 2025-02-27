@@ -6,26 +6,29 @@ import toast from "react-hot-toast";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import Image from "next/image";
 import sendIcon from "../../../public/sendIcon.png";
+import questionIcon from "../../../public/question.png";
 
 const PremiumFeature = () => {
+  const [inputValue, setInputValue] = useState<string>("");
   const [question, setQuestion] = useState<string>("");
   const [answer, setAnswer] = useState<string>("");
   const finalAnswer = answer.replace(/\*{1,2}/g, "");
 
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     e.target.style.height = "auto";
     e.target.style.height = `${e.target.scrollHeight}px`;
-    setQuestion(e.target.value);
+    setInputValue(e.target.value);
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setQuestion(inputValue);
+
     try {
       const response = await axios.post("/api/ai-content", { question });
       toast.success("Got the response");
       setAnswer(response?.data?.result);
     } catch (error) {
-      toast.error("Got error");
       console.log(error);
     }
   };
@@ -33,8 +36,19 @@ const PremiumFeature = () => {
   return (
     <div className="relative flex flex-col">
       {/* response div */}
-      <div className="relative flex w-[60%] left-[20%] xl:gap-4 gap-2 justify-center items-center text-center">
-        <TextGenerateEffect words={finalAnswer} />
+      <div className="relative flex flex-col w-[60%] left-[20%] xl:gap-4 gap-2 justify-center">
+        {question && (
+          <div className="relative flex gap-2">
+            <Image
+              src={questionIcon}
+              alt="questionIcon"
+              className="relative w-[32px]"
+            />
+            <h1 className="relative flex left-0 text-2xl">{question}</h1>
+          </div>
+        )}
+
+        {answer && <TextGenerateEffect words={" 👉 " + finalAnswer} />}
       </div>
       {/* response div */}
 
@@ -50,7 +64,7 @@ const PremiumFeature = () => {
             className="border-2 border-blue-400 w-[70%] resize-none overflow-hidden p-2 rounded-xl"
             rows={1}
             style={{ whiteSpace: "pre-wrap" }}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
           {/* input box for prompt */}
           {/* send icon */}
