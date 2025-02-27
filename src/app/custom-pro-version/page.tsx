@@ -68,7 +68,7 @@ const PremiumFeature = () => {
       {/* search bar */}
       <div className="fixed bottom-4 left-0 w-full p-4">
         <form
-          className="relative flex w-[80%] left-[10%] justify-center items-center text-center"
+          className="relative flex w-[80%] left-[10%] gap-2 justify-center items-center text-center"
           onSubmit={handleSubmit}
         >
           {/* input box for prompt */}
