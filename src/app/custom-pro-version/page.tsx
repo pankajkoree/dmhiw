@@ -66,9 +66,9 @@ const PremiumFeature = () => {
       {/* response div */}
 
       {/* search bar */}
-      <div className="fixed bottom-8 left-0 w-full p-4">
+      <div className="fixed bottom-4 left-0 w-full p-4">
         <form
-          className="relative flex w-[60%] left-[20%] xl:gap-4 gap-2 justify-center items-center text-center"
+          className="relative flex w-[80%] left-[10%] justify-center items-center text-center"
           onSubmit={handleSubmit}
         >
           {/* input box for prompt */}
@@ -94,12 +94,14 @@ const PremiumFeature = () => {
       {/* search bar */}
 
       {/* disclaimer starts here */}
-      <p className="text-sm">
-        Custom AI generated responses couldn't be completely accurate and
-        useful. We humbly request and appreciate your patience and
-        understanding. We are improving and Hope to have your feedback for
-        better future response.
-      </p>
+      <div className="fixed bottom-0 left-0 w-full text-center">
+        <p className="relative flex w-[50%] left-[25%] justify-center text-[10px] text-slate-400">
+          Custom AI generated responses couldn&apos;t be completely accurate and
+          useful. We humbly request and appreciate your patience and
+          understanding. We are improving and Hope to have your feedback for
+          better future response.
+        </p>
+      </div>
       {/* disclaimer starts here */}
     </div>
   );
