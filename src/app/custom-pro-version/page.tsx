@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
@@ -22,16 +22,29 @@ const PremiumFeature = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setQuestion(inputValue);
 
-    try {
-      const response = await axios.post("/api/ai-content", { question });
-      toast.success("Got the response");
-      setAnswer(response?.data?.result);
-    } catch (error) {
-      console.log(error);
+    if (!inputValue.trim()) {
+      toast.error("No question found...");
+      return;
     }
+
+    setQuestion(inputValue);
   };
+
+  useEffect(() => {
+    if (!question) return;
+    const getResponse = async () => {
+      try {
+        const response = await axios.post("/api/ai-content", { question });
+        toast.success("Got the response");
+        setAnswer(response?.data?.result);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getResponse();
+  }, [question]);
 
   return (
     <div className="relative flex flex-col">
@@ -79,6 +92,15 @@ const PremiumFeature = () => {
         </form>
       </div>
       {/* search bar */}
+
+      {/* disclaimer starts here */}
+      <p className="text-sm">
+        Custom AI generated responses couldn't be completely accurate and
+        useful. We humbly request and appreciate your patience and
+        understanding. We are improving and Hope to have your feedback for
+        better future response.
+      </p>
+      {/* disclaimer starts here */}
     </div>
   );
 };
