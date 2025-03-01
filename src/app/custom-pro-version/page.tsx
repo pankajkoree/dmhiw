@@ -50,6 +50,10 @@ const PremiumFeature = () => {
     <div className="relative flex flex-col">
       {/* response div */}
       <div className="relative flex flex-col w-[60%] left-[20%] xl:gap-4 gap-2 justify-center">
+        {/* to display something when question is not there */}
+        {!question && <Image src={questionIcon} alt="questionIcon" />}
+        {/* to display something when question is not there */}
+
         {question && (
           <div className="relative flex gap-2">
             <Image
@@ -60,6 +64,8 @@ const PremiumFeature = () => {
             <h1 className="relative flex left-0 text-2xl">{question}</h1>
           </div>
         )}
+
+        
 
         {answer && <TextGenerateEffect words={" 👉 " + finalAnswer} />}
       </div>
