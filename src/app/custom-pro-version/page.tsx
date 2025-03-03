@@ -65,8 +65,6 @@ const PremiumFeature = () => {
           </div>
         )}
 
-        
-
         {answer && <TextGenerateEffect words={" 👉 " + finalAnswer} />}
       </div>
       {/* response div */}
