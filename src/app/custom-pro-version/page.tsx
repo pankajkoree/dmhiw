@@ -80,7 +80,7 @@ const PremiumFeature = () => {
           {/* input box for prompt */}
           <textarea
             placeholder="ask me anything related to mental health"
-            className="border-2 border-blue-400 w-[70%] resize-none overflow-hidden p-2 rounded-xl"
+            className="border-2 border-blue-400 w-[70%] resize-none overflow-hidden p-2 rounded-xl hover:border-green-400"
             rows={1}
             style={{ whiteSpace: "pre-wrap" }}
             onChange={handleInputChange}
