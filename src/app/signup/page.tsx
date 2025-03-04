@@ -1,11 +1,17 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const Signup = () => {
+  const router = useRouter();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("hello");
+  };
+
+  const gotoLogin = () => {
+    router.push("/login");
   };
 
   return (
@@ -58,6 +64,13 @@ const Signup = () => {
             Signup
           </button>
           {/* signup button ends here */}
+
+          <button className="text-sm" onClick={gotoLogin}>
+            Already have an account?{" "}
+            <span className="text-gray-600 font-bold underline hover:text-green-300">
+              Login
+            </span>
+          </button>
         </form>
       </div>
     </div>
