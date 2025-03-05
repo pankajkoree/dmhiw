@@ -65,6 +65,25 @@ const page = () => {
         basketball to the gym the best exercise is simply the one we enjoy.{" "}
         <br />
       </div>
+
+      <div className="border border-slate-400 p-2">
+        3. Keep moving <br />
+        Our bodies and minds are connected so looking after ourselves physically
+        also helps us prevent problems with our mental health (it works the
+        other way around too). <br />
+        Moving our bodies with sport gardening dancing cycling walking the dog
+        cleaning or going to the gym for example are great ways to improve our
+        mental and physical health. <br />
+        Exercise releases “feel good” hormones that reduce feelings of stress
+        and anger. It also helps us feel better about our bodies. It can improve
+        our sleep too. If it involves other people like being part of a team a
+        class or a group we see regularly that can also boost our mental health.{" "}
+        <br />
+        We don&apos;t have to be professional athletes or sporty to get the
+        benefits of being physically active. From walking to dancing and
+        basketball to the gym the best exercise is simply the one we enjoy.{" "}
+        <br />
+      </div>
     </div>
   );
 };
