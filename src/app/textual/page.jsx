@@ -78,11 +78,6 @@ const page = () => {
         and anger. It also helps us feel better about our bodies. It can improve
         our sleep too. If it involves other people like being part of a team a
         class or a group we see regularly that can also boost our mental health.{" "}
-        <br />
-        We don&apos;t have to be professional athletes or sporty to get the
-        benefits of being physically active. From walking to dancing and
-        basketball to the gym the best exercise is simply the one we enjoy.{" "}
-        <br />
       </div>
     </div>
   );
