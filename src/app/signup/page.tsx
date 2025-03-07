@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React from "react";
+import user from "../../../public/user.png";
 
 const Signup = () => {
   const router = useRouter();
@@ -17,8 +18,8 @@ const Signup = () => {
   return (
     <div className="relative flex justify-center xl:top-20">
       <div className="relative flex flex-col justify-center items-center border p-2 xl:w-[25%] gap-4 rounded-xl">
-        <div>
-          <h2 className="text-3xl">Signup form</h2>
+        <div className="relative flex flex-col justify-center items-center w-full top-4">
+          <Image src={user} alt="user" className="xl:w-[60px]" />
           <p className="text-xl">Create your account</p>
         </div>
 
@@ -60,7 +61,10 @@ const Signup = () => {
           {/* password ends here */}
 
           {/* signup button starts here */}
-          <button type="submit" className="border p-2">
+          <button
+            type="submit"
+            className="border-2 p-2 bg-blue-500  hover:bg-green-500 text-white"
+          >
             Signup
           </button>
           {/* signup button ends here */}
