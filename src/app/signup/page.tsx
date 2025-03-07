@@ -17,7 +17,7 @@ const Signup = () => {
 
   return (
     <div className="relative flex justify-center xl:top-20">
-      <div className="relative flex flex-col justify-center items-center border p-2 xl:w-[25%] gap-4 rounded-xl">
+      <div className="relative flex flex-col justify-center items-center border p-2 xl:w-[22%] gap-4 rounded-xl">
         <div className="relative flex flex-col justify-center items-center w-full top-4">
           <Image src={user} alt="user" className="xl:w-[60px]" />
           <p className="text-xl">Create your account</p>
@@ -32,7 +32,7 @@ const Signup = () => {
           <input
             type="text"
             id="username"
-            className="relative flex h-[36px] border rounded-xl"
+            className="relative flex h-[40px] border rounded-sm"
           />
           {/* username ends here */}
 
@@ -41,7 +41,7 @@ const Signup = () => {
           <input
             type="text"
             id="email"
-            className="relative flex h-[36px] border rounded-xl"
+            className="relative flex h-[40px] border rounded-sm"
           />
           {/* email ends here */}
 
@@ -50,20 +50,20 @@ const Signup = () => {
           <input
             type="password"
             id="password"
-            className="relative flex h-[36px] border rounded-xl"
+            className="relative flex h-[40px] border rounded-sm"
           />
           <label htmlFor="cnfpassword">Confirm password</label>
           <input
             type="password"
             id="cnfpassword"
-            className="relative flex h-[36px] border rounded-xl"
+            className="relative flex h-[40px] border rounded-sm"
           />
           {/* password ends here */}
 
           {/* signup button starts here */}
           <button
             type="submit"
-            className="border-2 p-2 bg-blue-500  hover:bg-green-500 text-white"
+            className="border-2 p-2 bg-blue-500  hover:bg-green-500 text-white transition-all duration-500 ease-in-out rounded-sm"
           >
             Signup
           </button>
