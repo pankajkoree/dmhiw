@@ -24,7 +24,7 @@ const Signup = () => {
         </div>
 
         <form
-          className="relative flex flex-col gap-2 p-2 text-xl xl:w-[90%]"
+          className="relative flex flex-col gap-3 p-2 text-xl xl:w-[90%] top-4"
           onSubmit={handleSubmit}
         >
           {/* username starts here */}
@@ -63,13 +63,13 @@ const Signup = () => {
           {/* signup button starts here */}
           <button
             type="submit"
-            className="border-2 p-2 bg-blue-500  hover:bg-green-500 text-white transition-all duration-500 ease-in-out rounded-sm"
+            className="border-2 p-2 bg-blue-500 mt-3 hover:bg-green-500 text-white transition-all duration-500 ease-in-out rounded-sm"
           >
             Signup
           </button>
           {/* signup button ends here */}
 
-          <button className="text-sm" onClick={gotoLogin}>
+          <button className="text-sm mb-4" onClick={gotoLogin}>
             Already have an account?{" "}
             <span className="text-gray-600 font-bold underline hover:text-green-300">
               Login
