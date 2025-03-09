@@ -17,7 +17,7 @@ const Signup = () => {
 
   return (
     <div className="relative flex justify-center xl:top-20">
-      <div className="relative flex flex-col justify-center items-center border p-2 xl:w-[22%] gap-4 rounded-xl">
+      <div className="relative flex flex-col justify-center items-center border p-2 xl:w-[22%] gap-4 rounded-xl hover:border-green-300">
         <div className="relative flex flex-col justify-center items-center w-full top-4">
           <Image src={user} alt="user" className="xl:w-[60px]" />
           <p className="text-xl">Create your account</p>
