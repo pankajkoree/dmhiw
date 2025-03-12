@@ -63,7 +63,7 @@ const Signup = () => {
           {/* signup button starts here */}
           <button
             type="submit"
-            className="border-2 p-2 bg-blue-500 mt-3 hover:bg-green-500 text-white transition-all duration-500 ease-in-out rounded-sm"
+            className="border-2 p-2 bg-blue-500 mt-3 hover:bg-green-600 text-white transition-all duration-500 ease-in-out rounded-sm"
           >
             Signup
           </button>
