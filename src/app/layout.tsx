@@ -1,3 +1,6 @@
+"use client";
+
+import { BackgroundBeams } from "@/components/ui/background-beams";
 import "./globals.css";
 
 export default function RootLayout({
@@ -13,7 +16,26 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-aptos">{children}</body>
+      <body className="font-aptos">
+        <BackgroundBeams>{children}</BackgroundBeams>
+      </body>
     </html>
   );
 }
+
+// BackgroundBeams.tsx
+import React, { ReactNode } from "react";
+
+interface BackgroundBeamsProps {
+  className?: string;
+  children?: ReactNode;
+}
+
+const BackgroundBeams: React.FC<BackgroundBeamsProps> = ({
+  children,
+  className,
+}) => {
+  return <div className={className}>{children}</div>;
+};
+
+export { BackgroundBeams };
