@@ -71,7 +71,7 @@ const Signup = () => {
 
           <button className="text-sm mb-4" onClick={gotoLogin}>
             Already have an account?{" "}
-            <span className="text-gray-600 font-bold underline hover:text-green-300">
+            <span className="text-gray-700 font-bold underline hover:text-green-300">
               Login
             </span>
           </button>
