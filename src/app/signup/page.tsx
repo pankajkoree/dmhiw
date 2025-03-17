@@ -24,7 +24,7 @@ const Signup = () => {
         </div>
 
         <form
-          className="relative flex flex-col gap-3 p-2 text-xl xl:w-[90%] top-4"
+          className="relative flex flex-col gap-2 p-2 text-xl xl:w-[90%] top-4"
           onSubmit={handleSubmit}
         >
           {/* username starts here */}
