@@ -28,7 +28,7 @@ const Signup = () => {
           onSubmit={handleSubmit}
         >
           {/* username starts here */}
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username">Username/Email</label>
           <input
             type="text"
             id="username"
