@@ -13,15 +13,6 @@ const Login = () => {
         </div>
 
         <form className="relative flex flex-col gap-2 p-2 text-xl xl:w-[90%] top-4">
-          {/* username starts here */}
-          <label htmlFor="username">Username/Email</label>
-          <input
-            type="text"
-            id="username"
-            className="relative flex h-[40px] border rounded-sm"
-          />
-          {/* username ends here */}
-
           {/* email starts here */}
           <label htmlFor="email">Email</label>
           <input
@@ -38,12 +29,7 @@ const Login = () => {
             id="password"
             className="relative flex h-[40px] border rounded-sm"
           />
-          <label htmlFor="cnfpassword">Confirm password</label>
-          <input
-            type="password"
-            id="cnfpassword"
-            className="relative flex h-[40px] border rounded-sm"
-          />
+
           {/* password ends here */}
 
           {/* signup button starts here */}
@@ -51,12 +37,14 @@ const Login = () => {
             type="submit"
             className="border-2 p-2 bg-blue-500 mt-3 hover:bg-green-600 text-white transition-all duration-500 ease-in-out rounded-sm"
           >
-            Signup
+            Login
           </button>
           {/* signup button ends here */}
 
+          <button className="text-sm">Forget username/password? </button>
+
           <button className="text-sm mb-4">
-            Already have an account?{" "}
+            Don't have an account ?{" "}
             <span className="text-gray-600 font-bold underline hover:text-green-300">
               Login
             </span>
