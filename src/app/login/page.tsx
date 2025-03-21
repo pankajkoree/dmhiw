@@ -2,8 +2,18 @@
 
 import Image from "next/image";
 import user from "../../../public/user.png";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
+  const router = useRouter();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
+  const gotoSignup = () => {
+    router.push("/signup");
+  };
   return (
     <div className="relative flex justify-center xl:top-20">
       <div className="relative flex flex-col justify-center items-center border p-2 xl:w-[22%] gap-4 rounded-xl hover:border-green-300">
@@ -12,7 +22,10 @@ const Login = () => {
           <p className="text-xl">Login</p>
         </div>
 
-        <form className="relative flex flex-col gap-2 p-2 text-xl xl:w-[90%] top-4">
+        <form
+          className="relative flex flex-col gap-2 p-2 text-xl xl:w-[90%] top-4"
+          onSubmit={handleSubmit}
+        >
           {/* email starts here */}
           <label htmlFor="email">Email</label>
           <input
@@ -41,12 +54,15 @@ const Login = () => {
           </button>
           {/* signup button ends here */}
 
-          <button className="text-sm">Forget username/password? </button>
+          <button className="text-sm">Forget username/password?</button>
 
           <button className="text-sm mb-4">
-            Don't have an account ?{" "}
-            <span className="text-gray-600 font-bold underline hover:text-green-300">
-              Login
+            Don't have an account?{" "}
+            <span
+              className="text-gray-600 font-bold underline hover:text-green-300"
+              onClick={gotoSignup}
+            >
+              Signup
             </span>
           </button>
         </form>
