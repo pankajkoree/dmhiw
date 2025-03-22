@@ -54,7 +54,9 @@ const Login = () => {
           </button>
           {/* signup button ends here */}
 
-          <button className="text-sm">Forget username/password?</button>
+          <button className="text-sm" onClick={gotoForgot}>
+            Forget username/password?
+          </button>
 
           <button className="text-sm mb-4">
             Don't have an account?{" "}
