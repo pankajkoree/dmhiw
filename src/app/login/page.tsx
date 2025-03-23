@@ -59,7 +59,10 @@ const Login = () => {
           </button>
           {/* signup button ends here */}
 
-          <button className="text-sm" onClick={gotoForgot}>
+          <button
+            className="text-sm hover:scale-105 hover:text-red-600 transition-all duration-500 ease-in-out"
+            onClick={gotoForgot}
+          >
             Forget username/password?
           </button>
 
