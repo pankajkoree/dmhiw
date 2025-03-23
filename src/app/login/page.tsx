@@ -16,7 +16,7 @@ const Login = () => {
   };
 
   const gotoForgot = () => {
-    router.push("/gotoForgot");
+    router.push("/forgotCredentials");
   };
 
   return (
