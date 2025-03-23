@@ -14,6 +14,11 @@ const Login = () => {
   const gotoSignup = () => {
     router.push("/signup");
   };
+
+  const gotoForgot = () => {
+    router.push("/gotoForgot");
+  };
+
   return (
     <div className="relative flex justify-center xl:top-20">
       <div className="relative flex flex-col justify-center items-center border p-2 xl:w-[22%] gap-4 rounded-xl hover:border-green-300">
