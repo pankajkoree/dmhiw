@@ -4,7 +4,8 @@ const forgotCredentials = () => {
   return (
     <div>
       <h1>Forgot username or password</h1>
-      <p>Enter username or email</p>
+      <label id="useroremail">Enter username or email</label>
+      <input type="text" id="useroremail" />
     </div>
   );
 };
