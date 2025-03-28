@@ -15,7 +15,7 @@ const forgotCredentials = () => {
         <label htmlFor="email">Email</label>
         <input type="text" id="email" />
 
-        <button type="submit">Update password</button>
+        <button type="submit">Change password</button>
       </form>
     </div>
   );
