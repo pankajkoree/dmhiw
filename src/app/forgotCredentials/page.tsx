@@ -5,10 +5,6 @@ const forgotCredentials = () => {
     e.preventDefault();
   };
 
-  const handleCredentials = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
-
   return (
     <div>
       <form onSubmit={handleSubmit}>
