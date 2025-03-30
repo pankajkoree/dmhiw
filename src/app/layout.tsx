@@ -6,8 +6,6 @@ import "./globals.css";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 
 
-
-
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -22,7 +20,7 @@ export default function RootLayout({
       <body className="font-aptos">
         <AuthProvider>
 
-          <BackgroundBeams />
+          <BackgroundBeams /> {/* Now loaded only on the client */}
 
           <main className="relative z-10">{children}</main>
 
@@ -30,6 +28,6 @@ export default function RootLayout({
         </AuthProvider>
 
       </body>
-    </html >
+    </html>
   );
 }
