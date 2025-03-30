@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className="font-aptos">
         <AuthProvider>
 
-          <BackgroundBeams /> {/* Now loaded only on the client */}
+          <BackgroundBeams />
 
           <main className="relative z-10">{children}</main>
 
