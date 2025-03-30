@@ -3,8 +3,6 @@
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./context/AuthContext";
 import "./globals.css";
-import { BackgroundBeams } from "@/components/ui/background-beams";
-
 
 export default function RootLayout({
   children,
@@ -31,3 +29,20 @@ export default function RootLayout({
     </html>
   );
 }
+
+// BackgroundBeams.tsx
+import React, { ReactNode } from "react";
+
+interface BackgroundBeamsProps {
+  className?: string;
+  children?: ReactNode;
+}
+
+const BackgroundBeams: React.FC<BackgroundBeamsProps> = ({
+  children,
+  className,
+}) => {
+  return <div className={className}>{children}</div>;
+};
+
+export { BackgroundBeams };

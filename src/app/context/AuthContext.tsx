@@ -65,4 +65,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
             {children}
         </AuthContext.Provider>
     );
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> master
