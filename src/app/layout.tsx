@@ -1,12 +1,14 @@
 "use client";
 
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
+import { BackgroundBeams } from "@/components/ui/background-beams";
+import { AuthProvider } from "./context/AuthContext";
+
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <head>
@@ -16,25 +18,16 @@ export default function RootLayout({
         />
       </head>
       <body className="font-aptos">
-        <BackgroundBeams>{children}</BackgroundBeams>
+        <AuthProvider>
+
+          <BackgroundBeams />
+
+          <main className="relative z-10">{children}</main>
+
+          <Toaster position="top-center" />
+        </AuthProvider>
+
       </body>
     </html>
   );
 }
-
-// BackgroundBeams.tsx
-import React, { ReactNode } from "react";
-
-interface BackgroundBeamsProps {
-  className?: string;
-  children?: ReactNode;
-}
-
-const BackgroundBeams: React.FC<BackgroundBeamsProps> = ({
-  children,
-  className,
-}) => {
-  return <div className={className}>{children}</div>;
-};
-
-export { BackgroundBeams };
