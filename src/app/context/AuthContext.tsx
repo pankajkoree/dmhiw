@@ -10,9 +10,10 @@ import {
 // Define the shape of the AuthContext
 interface AuthContextType {
     isLoggedIn: boolean;
-    login: (userData: object) => void;
+    login: (userData: UserData) => void;
     logout: () => void;
 }
+
 
 // Create the context with the defined type
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -37,7 +38,10 @@ interface UserData {
 }
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => {
+        return localStorage.getItem("user") !== null;
+    });
+
 
     useEffect(() => {
         const user = localStorage.getItem("user");
