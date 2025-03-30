@@ -8,12 +8,17 @@ import {
 } from "react";
 
 // Define the shape of the AuthContext
+interface UserData {
+    id: string;
+    email: string;
+    name: string;
+}
+
 interface AuthContextType {
     isLoggedIn: boolean;
     login: (userData: UserData) => void;
     logout: () => void;
 }
-
 
 // Create the context with the defined type
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -26,27 +31,19 @@ export const useAuth = (): AuthContextType => {
     return context;
 };
 
-
 interface AuthProviderProps {
     children: ReactNode;
 }
 
-interface UserData {
-    id: string;
-    email: string;
-    name: string;
-}
-
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => {
-        return localStorage.getItem("user") !== null;
-    });
-
+    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
     useEffect(() => {
-        const user = localStorage.getItem("user");
-        if (user) {
-            setIsLoggedIn(true);
+        if (typeof window !== "undefined") {  // ✅ Ensure client-side execution
+            const user = localStorage.getItem("user");
+            if (user) {
+                setIsLoggedIn(true);
+            }
         }
     }, []);
 
@@ -55,13 +52,17 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
             console.error("User data is undefined");
             return;
         }
-        localStorage.setItem("user", JSON.stringify(userData));
-        setIsLoggedIn(true);
+        if (typeof window !== "undefined") {  // ✅ Ensure client-side execution
+            localStorage.setItem("user", JSON.stringify(userData));
+            setIsLoggedIn(true);
+        }
     };
 
     const logout = () => {
-        localStorage.removeItem("user");
-        setIsLoggedIn(false);
+        if (typeof window !== "undefined") {  // ✅ Ensure client-side execution
+            localStorage.removeItem("user");
+            setIsLoggedIn(false);
+        }
     };
 
     return (
