@@ -25,7 +25,7 @@ export const useAuth = (): AuthContextType => {
     return context;
 };
 
-// Define props type for the AuthProvider
+
 interface AuthProviderProps {
     children: ReactNode;
 }
