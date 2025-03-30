@@ -1,7 +1,7 @@
 "use client";
 
 import { Toaster } from "react-hot-toast";
-import { AuthProvider } from "./context/AuthContext";
+
 import "./globals.css";
 
 export default function RootLayout({
