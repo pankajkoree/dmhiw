@@ -3,16 +3,10 @@
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./context/AuthContext";
 import "./globals.css";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 
 
-interface BackgroundBeamsProps {
-  className?: string;
-  children?: React.ReactNode;
-}
 
-const BackgroundBeams: React.FC<BackgroundBeamsProps> = ({ children, className }) => {
-  return <div className={className}>{children}</div>;
-};
 
 export default function RootLayout({
   children,
@@ -28,13 +22,14 @@ export default function RootLayout({
       <body className="font-aptos">
         <AuthProvider>
 
-          <BackgroundBeams>{children}
+          <BackgroundBeams />
 
-            <Toaster position="top-center" />
-          </BackgroundBeams>
+          <main className="relative z-10">{children}</main>
+
+          <Toaster position="top-center" />
         </AuthProvider>
 
       </body>
-    </html>
+    </html >
   );
 }
