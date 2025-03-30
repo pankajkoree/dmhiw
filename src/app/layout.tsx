@@ -32,6 +32,7 @@ export default function RootLayout({
 
 // BackgroundBeams.tsx
 import React, { ReactNode } from "react";
+import { AuthProvider } from "./context/AuthContext";
 
 interface BackgroundBeamsProps {
   className?: string;
