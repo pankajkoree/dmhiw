@@ -20,7 +20,6 @@ interface AuthContextType {
     logout: () => void;
 }
 
-// Create the context with the defined type
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const useAuth = (): AuthContextType => {
