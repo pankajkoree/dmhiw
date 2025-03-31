@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
     useEffect(() => {
-        if (typeof window !== "undefined") {  // ✅ Ensure client-side execution
+        if (typeof window !== "undefined") {  //
             const user = localStorage.getItem("user");
             if (user) {
                 setIsLoggedIn(true);
@@ -52,14 +52,14 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
             console.error("User data is undefined");
             return;
         }
-        if (typeof window !== "undefined") {  // ✅ Ensure client-side execution
+        if (typeof window !== "undefined") {
             localStorage.setItem("user", JSON.stringify(userData));
             setIsLoggedIn(true);
         }
     };
 
     const logout = () => {
-        if (typeof window !== "undefined") {  // ✅ Ensure client-side execution
+        if (typeof window !== "undefined") {
             localStorage.removeItem("user");
             setIsLoggedIn(false);
         }
