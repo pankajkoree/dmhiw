@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     };
 
     const logout = () => {
-        if (typeof window !== "undefined") {
+        if (typeof window !== "un") {
             localStorage.removeItem("user");
             setIsLoggedIn(false);
         }
