@@ -58,6 +58,25 @@
   }
 }
 
+@keyframes neonGlow {
+  0% {
+    text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff, 0 0 20px #00bfff;
+  }
+
+  50% {
+    text-shadow: 0 0 10px #1e90ff, 0 0 20px #1e90ff, 0 0 30px #1e90ff;
+  }
+
+  100% {
+    text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff, 0 0 20px #00bfff;
+  }
+}
+
+.neon-text {
+  color: #00bfff;
+  animation: neonGlow 1.5s infinite alternate ease-in-out;
+}
+
 body{
   font-family: "Lato"
 }
