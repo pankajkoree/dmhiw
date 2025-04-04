@@ -1,14 +1,36 @@
 "use client";
 
 import Image from "next/image";
-import user from "../../../public/user.png";
+import userImage from "../../../public/user.png";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const router = useRouter();
+  const [user, setUser] = useState({
+    email: "",
+    password: ""
+  })
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    try {
+      const response = await axios.post("/api/user/login", user)
+
+      if (response.status === 200 && response.data.user) {
+        toast.success("Login successful")
+        router.push("/custom-pro-version")
+
+      }
+      else {
+        toast.error("User not found")
+      }
+    } catch (error) {
+      toast.error("Invalid credentials")
+    }
   };
 
   const gotoSignup = () => {
@@ -23,7 +45,7 @@ const Login = () => {
     <div className="relative flex justify-center xl:top-20">
       <div className="relative flex flex-col justify-center items-center border p-2 xl:w-[22%] gap-4 rounded-xl hover:border-green-300">
         <div className="relative flex flex-col justify-center items-center w-full top-4">
-          <Image src={user} alt="user" className="xl:w-[60px]" />
+          <Image src={userImage} alt="user" className="xl:w-[60px]" />
           <p className="text-xl">Login</p>
         </div>
 
@@ -36,7 +58,9 @@ const Login = () => {
           <input
             type="text"
             id="email"
+            value={user.email}
             className="relative flex h-[40px] border rounded-sm"
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
           />
           {/* email ends here */}
 
@@ -45,7 +69,9 @@ const Login = () => {
           <input
             type="password"
             id="password"
+            value={user.password}
             className="relative flex h-[40px] border rounded-sm"
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
 
           {/* password ends here */}
