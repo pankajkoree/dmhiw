@@ -13,6 +13,20 @@ const Signup = () => {
     password: "",
     confirmPassword: "",
   });
+
+  const [error, setError] = useState("")
+
+  const handleConfirmPassword = (e) => {
+    const confirmPassword = e.target.value;
+    setUser({ ...user, confirmPassword })
+
+    if (confirmPassword !== user.password) {
+      setError("Passwords do not match")
+    } else {
+      setError("Unknown error")
+    }
+  }
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("hello");
@@ -39,7 +53,9 @@ const Signup = () => {
           <input
             type="text"
             id="username"
+            value={user.username}
             className="relative flex h-[40px] border rounded-sm"
+            onChange={(e) => setUser({ ...user, username: e.target.value })}
           />
           {/* username ends here */}
 
@@ -48,7 +64,9 @@ const Signup = () => {
           <input
             type="text"
             id="email"
+            value={user.email}
             className="relative flex h-[40px] border rounded-sm"
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
           />
           {/* email ends here */}
 
@@ -57,13 +75,16 @@ const Signup = () => {
           <input
             type="password"
             id="password"
+            value={user.password}
             className="relative flex h-[40px] border rounded-sm"
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
           <label htmlFor="cnfpassword">Confirm password</label>
           <input
             type="password"
             id="cnfpassword"
             className="relative flex h-[40px] border rounded-sm"
+            onChange={handleConfirmPassword}
           />
           {/* password ends here */}
 
