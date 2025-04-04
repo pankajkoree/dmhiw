@@ -3,7 +3,9 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import userImage from "../../../public/user.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const Signup = () => {
   const router = useRouter();
@@ -14,9 +16,24 @@ const Signup = () => {
     confirmPassword: "",
   });
 
+  const [newUserData, setNewUserData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  })
+  useEffect(() => {
+    if (user.password && user.confirmPassword && user.password === user.confirmPassword) {
+      setNewUserData({
+        username: user.username,
+        email: user.email,
+        password: user.password,
+      });
+    }
+  }, [user]);
+
   const [error, setError] = useState("")
 
-  const handleConfirmPassword = (e) => {
+  const handleConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     const confirmPassword = e.target.value;
     setUser({ ...user, confirmPassword })
 
@@ -29,7 +46,13 @@ const Signup = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("hello");
+    try {
+      const response = await axios.post("/api/users/signup", newUserData)
+      toast.success("Successfully signed up")
+      router.push("/login")
+    } catch {
+      toast.error("Signup failed")
+    }
   };
 
   const gotoLogin = () => {
@@ -83,9 +106,11 @@ const Signup = () => {
           <input
             type="password"
             id="cnfpassword"
+            value={user.confirmPassword}
             className="relative flex h-[40px] border rounded-sm"
             onChange={handleConfirmPassword}
           />
+          <h1>{error}</h1>
           {/* password ends here */}
 
           {/* signup button starts here */}
