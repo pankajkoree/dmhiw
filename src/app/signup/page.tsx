@@ -2,10 +2,17 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import user from "../../../public/user.png";
+import userImage from "../../../public/user.png";
+import { useState } from "react";
 
 const Signup = () => {
   const router = useRouter();
+  const [user, setUser] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("hello");
@@ -19,7 +26,7 @@ const Signup = () => {
     <div className="relative flex justify-center xl:top-20">
       <div className="relative flex flex-col justify-center items-center border p-2 xl:w-[22%] gap-4 rounded-xl hover:border-green-300">
         <div className="relative flex flex-col justify-center items-center w-full top-4">
-          <Image src={user} alt="user" className="xl:w-[60px]" />
+          <Image src={userImage} alt="user" className="xl:w-[60px]" />
           <p className="text-xl">Create your account</p>
         </div>
 
