@@ -40,7 +40,7 @@ const Signup = () => {
     if (confirmPassword !== user.password) {
       setError("Passwords do not match")
     } else {
-      setError("Unknown error")
+      setError("")
     }
   }
 
@@ -49,7 +49,7 @@ const Signup = () => {
     console.log(user)
     console.log(newUserData)
     try {
-      const response = await axios.post("/api/users/signup", newUserData)
+      const response = await axios.post("/api/user/signup", newUserData)
       toast.success("Successfully signed up")
       router.push("/login")
     } catch {
