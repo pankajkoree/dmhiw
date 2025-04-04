@@ -1,7 +1,6 @@
 "use client";
 
 import { Toaster } from "react-hot-toast";
-import { AuthProvider } from "./context/AuthContext";
 import "./globals.css";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 
@@ -18,14 +17,14 @@ export default function RootLayout({
         />
       </head>
       <body className="font-aptos">
-        <AuthProvider>
 
-          <BackgroundBeams />
 
-          <main className="relative z-10">{children}</main>
+        <BackgroundBeams />
 
-          <Toaster position="top-center" />
-        </AuthProvider>
+        <main className="relative z-10">{children}</main>
+
+        <Toaster position="top-center" />
+
 
       </body>
     </html>

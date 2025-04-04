@@ -46,6 +46,8 @@ const Signup = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(user)
+    console.log(newUserData)
     try {
       const response = await axios.post("/api/users/signup", newUserData)
       toast.success("Successfully signed up")
@@ -110,7 +112,7 @@ const Signup = () => {
             className="relative flex h-[40px] border rounded-sm"
             onChange={handleConfirmPassword}
           />
-          <h1>{error}</h1>
+          <h1 className="text-sm text-red-500">{error}</h1>
           {/* password ends here */}
 
           {/* signup button starts here */}
