@@ -13,7 +13,6 @@ export const POST = async (request: NextRequest) => {
     const { email, password } = reqBody;
 
     const user = await User.findOne({ email: email.toLowerCase() });
-    console.log("👤 User Found:", user); // Log user data
 
     if (!user) {
       return NextResponse.json(
