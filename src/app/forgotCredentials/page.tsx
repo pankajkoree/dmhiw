@@ -14,6 +14,7 @@ const forgotCredentials = () => {
         <input type="text" id="email" />
 
         <br />
+        <br />
 
         <label htmlFor="password">Password</label>
         <input type="password" id="password" />
