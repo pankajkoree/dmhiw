@@ -1,8 +1,17 @@
 "use client";
 
+import { useState } from "react";
+
 const forgotCredentials = () => {
+
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  })
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
   };
 
   return (
