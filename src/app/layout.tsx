@@ -1,9 +1,20 @@
 "use client";
 
 import { Toaster } from "react-hot-toast";
+import React, { ReactNode } from "react";
 import "./globals.css";
-import { BackgroundBeams } from "@/components/ui/background-beams";
 
+interface BackgroundBeamsProps {
+  className?: string;
+  children?: ReactNode;
+}
+
+const BackgroundBeams: React.FC<BackgroundBeamsProps> = ({
+  children,
+  className,
+}) => {
+  return <div className={className}>{children}</div>;
+};
 
 export default function RootLayout({
   children,
@@ -17,15 +28,9 @@ export default function RootLayout({
         />
       </head>
       <body className="font-aptos">
-
-
         <BackgroundBeams />
-
         <main className="relative z-10">{children}</main>
-
         <Toaster position="top-center" />
-
-
       </body>
     </html>
   );
