@@ -30,7 +30,7 @@ export default function RootLayout({
       <body className="font-aptos">
         <BackgroundBeams />
         <main className="relative z-10">{children}</main>
-        <Toaster position="top-center" />
+        <Toaster position="top-center" reverseOrder={false} />
       </body>
     </html>
   );
