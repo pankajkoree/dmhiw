@@ -13,7 +13,13 @@ export const HoverEffect = ({
     title: string;
     description: string;
     link: string;
+    media?: {
+      type: "image" | "youtube" | "audio";
+      src: string;
+    };
   }[];
+
+
   className?: string;
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -55,6 +61,7 @@ export const HoverEffect = ({
             <CardTitle>{item.title}</CardTitle>
             <CardDescription>{item.description}</CardDescription>
           </Card>
+
 
         </Link>
       ))}
@@ -123,7 +130,11 @@ export const CardMedia = ({
   return (
     <div className={cn("mb-4 rounded-xl overflow-hidden", className)}>
       {media.type === "image" && (
-        <img src={media.src} alt="Card media" className="w-full h-40 object-contain bg-white p-2 rounded-xl" />
+        <img
+          src={media.src}
+          alt="Card media"
+          className="w-full h-40 object-contain bg-white p-2 rounded-xl"
+        />
       )}
       {media.type === "youtube" && (
         <div className="aspect-video">
