@@ -111,3 +111,35 @@ export const CardDescription = ({
     </p>
   );
 };
+export const CardMedia = ({
+  media,
+  className,
+}: {
+  media: { type: "image" | "youtube" | "audio"; src: string };
+  className?: string;
+}) => {
+  return (
+    <div className={cn("mb-4 rounded-xl overflow-hidden", className)}>
+      {media.type === "image" && (
+        <img src={media.src} alt="Card media" className="w-full h-40 object-contain bg-white p-2 rounded-xl" />
+      )}
+      {media.type === "youtube" && (
+        <div className="aspect-video">
+          <iframe
+            src={media.src}
+            title="YouTube video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full rounded-xl"
+          />
+        </div>
+      )}
+      {media.type === "audio" && (
+        <audio controls className="w-full">
+          <source src={media.src} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      )}
+    </div>
+  );
+};
