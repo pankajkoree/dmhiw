@@ -18,29 +18,44 @@ export default function Home() {
 
 
 export const datas = [
-
   {
     title: "Meta",
     description:
       "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
     link: "https://meta.com",
+    media: {
+      type: "image",
+      src: "https://upload.wikimedia.org/wikipedia/commons/0/05/Meta_Platforms_Inc._logo.svg",
+    },
   },
   {
     title: "Amazon",
     description:
       "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
     link: "https://amazon.com",
+    media: {
+      type: "youtube",
+      src: "https://www.youtube.com/embed/1O4jWcDg4c8", // embed link
+    },
   },
   {
     title: "Microsoft",
     description:
       "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
     link: "https://microsoft.com",
+    media: {
+      type: "audio",
+      src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    },
   },
   {
     title: "Google",
     description:
       "A multinational technology company that specializes in Internet-related services and products.",
     link: "https://google.com",
-  }
-]
+    media: {
+      type: "image",
+      src: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+    },
+  },
+];

@@ -51,9 +51,11 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <Card>
+            {item.media && <CardMedia media={item.media} />}
             <CardTitle>{item.title}</CardTitle>
             <CardDescription>{item.description}</CardDescription>
           </Card>
+
         </Link>
       ))}
     </div>
