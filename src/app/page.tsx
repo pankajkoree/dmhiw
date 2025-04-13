@@ -33,7 +33,7 @@ export const datas: {
       link: "https://meta.com",
       media: {
         type: "image",
-        src: "https://upload.wikimedia.org/wikipedia/commons/0/05/Meta_Platforms_Inc._logo.svg",
+        src: "https://media.assettype.com/analyticsinsight%2F2024-07%2Fbadae94c-adaf-4b11-bdda-d8c61631d1ff%2FThe_Latest_Innovations_That_Meta_Has_Come_Up_with_in_2022_1.jpg",
       },
     },
     {
@@ -43,7 +43,7 @@ export const datas: {
       link: "https://amazon.com",
       media: {
         type: "youtube",
-        src: "https://www.youtube.com/embed/1O4jWcDg4c8",
+        src: "https://www.youtube.com/watch?v=AOHT-YiOeQA&ab_channel=TherapyinaNutshell",
       },
     },
     {
