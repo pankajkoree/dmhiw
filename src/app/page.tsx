@@ -9,7 +9,7 @@ export default function Home() {
       <p className="xl:w-[40%]">Discover a safe and anonymous space to explore mental health resources  and begin your wellness journey. When you are ready for deeper insights  and personalized guidance and  unlock the pro version to connect your unique challenges  with tailored information, all while maintaining the privacy you value</p>
 
 
-      <HoverEffect items={datas} />
+      <HoverEffect items={data} />
     </div>
 
 
@@ -17,7 +17,7 @@ export default function Home() {
 }
 
 
-export const datas: {
+export const data: {
   title: string;
   description: string;
   link: string;
