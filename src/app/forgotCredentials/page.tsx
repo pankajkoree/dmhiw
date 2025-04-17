@@ -11,7 +11,8 @@ const forgotCredentials = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    // this console need to be removed
+    console.log(data)
   };
 
   return (
