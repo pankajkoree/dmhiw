@@ -38,7 +38,7 @@ const Login = () => {
   };
 
   const gotoForgot = () => {
-    router.push("/forgotCredentials");
+    router.push("/ForgotCredentials");
   };
 
   return (
