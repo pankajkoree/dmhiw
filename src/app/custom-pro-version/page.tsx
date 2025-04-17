@@ -65,7 +65,7 @@ const PremiumFeature = () => {
           {/* response div */}
           <div className="relative flex flex-col w-[60%] left-[20%] xl:gap-4 gap-2 justify-center">
             {/* to display something when question is not there */}
-            {!question && <Image src={questionIcon} alt="questionIcon" />}
+            {!question && <Image src={questionIcon} alt="questionIcon" className="relative w-[80px]" />}
             {/* to display something when question is not there */}
 
             {question && (

@@ -1,46 +1,21 @@
 "use client";
 
-export default function Home() {
-  const data: {
-    title: string;
-    description: string;
-    link: string;
-    media?: {
-      type: "image" | "youtube" | "audio";
-      src: string;
-    };
-  }[] = [
-      {
-        title: "Dr. Laurie Santos' 5 Favorite Coping Tips",
-        description:
-          "Thanks for sharing the transcript! Here's a clean summary of the key messages from Dr. Laurie Santos' talk on coping and mental well-being, especially in tough times like 2020. Dr. Laurie Santos' 5 Evidence-Based Coping Strategies: 1. Exercise - Regular cardio (like 30 mins daily) can be as effective as antidepressants. - Boosts mood and well-being. - Laurie's favorites: hiking and yoga. 2. Gratitude - Training your brain to notice positives improves happiness. - Writing down 3 to 5 things you're grateful for daily boosts well-being in just 2 weeks. 3. Sleep - Crucial for mental health. - Avoid screens before bed to reduce anxiety. - Laurie puts her phone to bed to disconnect. 4. Social Connection - Happy people spend more time with others. - Even virtual connections (Zoom calls, etc.) can lift your mood. 5. Feel Your Emotions (RAIN Technique) - Don't suppress emotions — accept and explore them. - RAIN: Recognize, Accept, Investigate, Nurture. Final Message: We're all in this together — these tools help us flourish and protect mental health even in difficult times.",
-        link: "https://www.youtube.com/watch?v=kCQim9VrnDY&ab_channel=Dr.LaurieSantos",
-        media: {
-          type: "youtube",
-          src: "https://www.youtube.com/embed/kCQim9VrnDY",
-        },
-      },
+import Footer from "@/components/ui/Footer";
+import textalImage from "../../public/textualimage.jpg"
+import aiContent from "../../public/aicontent.png"
+import Image from "next/image";
 
-      {
-        title: "Facing Horrific Family Trauma & Finding Joy After Divorce",
-        description:
-          "This episode addresses deeply personal questions around healing, trauma, and the journey toward finding hope in difficult circumstances. Dr. Duff offers insight into the emotional, psychological, and ethical aspects of sharing personal stories and navigating major life transitions. The complexities of publishing a memoir about trauma and abuse, understanding the impact of complex PTSD and generational trauma, navigating family threats and estrangement with personal boundaries, grieving the loss of an idealized future after divorce, why happiness doesn&apos;t have to look how you thought it would, tips for finding support and resilience as a single parent, and the value of community, therapy, and chosen family.",
-        link: "https://microsoft.com",
-        media: {
-          type: "audio",
-          src: "https://podcasts.apple.com/us/podcast/436-facing-horrific-family-trauma-finding-joy-after/id1094120819?i=1000703163017",
-        },
-      },
-    ];
+export default function Home() {
+
   return (
-    <div className="relative flex flex-col justify-center items-center text-center">
-      <h1 className="uppercase text-3xl">
+    <div className="relative flex flex-col justify-center items-center text-center gap-4">
+      <h1 className="relative flex top-4 lg:top-12 xl:top-16 uppercase text-xl lg:text-4xl xl:text-5xl font-bold">
         Digital Mental Health Interventions and Wellness
       </h1>
-      <h2 className="text-xl">
+      <h2 className="relative flex top-4 lg:top-12 xl:top-24 xl:text-3xl italic font-bold">
         Find your calm, anonymously. Explore deeper, personally
       </h2>
-      <p className="xl:w-[40%]">
+      <p className="relative flex top-4 xl:top-28 xl:text-2xl xl:w-[40%]">
         Discover a safe and anonymous space to explore mental health resources
         and begin your wellness journey. When you are ready for deeper insights
         and personalized guidance and unlock the pro version to connect your
@@ -48,9 +23,10 @@ export default function Home() {
         privacy you value
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center mt-10">
-        {/* Card 1 - YouTube */}
+      <div className="relative top-4 lg:top-12 xl:top-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center mt-10 p-2 xl:p-0">
+        {/* Card 1 - Video content route */}
         <div className="w-full max-w-[400px] flex flex-col text-center xl:shadow-xl xl:shadow-blue-300 hover:shadow-lg hover:shadow-green-500 p-4 rounded-xl">
+          <h2 className="mt-2 text-lg font-semibold">Video route</h2>
           <iframe
             className="w-full rounded-lg"
             height="240"
@@ -62,21 +38,10 @@ export default function Home() {
           <h3 className="mt-2 text-lg font-semibold">Dr. Laurie Santos' 5 Favorite Coping Tips</h3>
         </div>
 
-        {/* Card 2 - YouTube */}
-        <div className="w-full max-w-[400px] flex flex-col text-center xl:shadow-xl xl:shadow-blue-300 hover:shadow-lg hover:shadow-green-500 p-4 rounded-xl bg-white">
-          <iframe
-            className="w-full rounded-lg"
-            height="240"
-            src="https://www.youtube.com/embed/kCQim9VrnDY"
-            title="Dr. Laurie Santos' 5 Favorite Coping Tips"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-          <h3 className="mt-2 text-lg font-semibold">Dr. Laurie Santos' 5 Favorite Coping Tips</h3>
-        </div>
 
-        {/* Card 3 - Apple Podcast */}
+        {/* Card 2 - Audio content route */}
         <div className="w-full max-w-[400px] flex flex-col text-center xl:shadow-xl xl:shadow-blue-300 hover:shadow-lg hover:shadow-green-500 p-4 rounded-xl bg-white">
+          <h2 className="mt-2 text-lg font-semibold">Audio route</h2>
           <iframe
             className="w-full rounded-lg"
             height="175"
@@ -87,19 +52,25 @@ export default function Home() {
           <h3 className="mt-2 text-lg font-semibold">Facing Horrific Family Trauma & Finding Joy After Divorce</h3>
         </div>
 
-        {/* Card 4 - Apple Podcast */}
+        {/* Card 3 - Textual content route*/}
         <div className="w-full max-w-[400px] flex flex-col text-center xl:shadow-xl xl:shadow-blue-300 hover:shadow-lg hover:shadow-green-500 p-4 rounded-xl bg-white">
-          <iframe
-            className="w-full rounded-lg"
-            height="175"
-            allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
-            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
-            src="https://embed.podcasts.apple.com/us/podcast/436-facing-horrific-family-trauma-finding-joy-after/id1094120819?i=1000703163017"
-          ></iframe>
-          <h3 className="mt-2 text-lg font-semibold">Facing Horrific Family Trauma & Finding Joy After Divorce</h3>
+          <h2 className="mt-2 text-lg font-semibold">Textual route</h2>
+          <Image src={textalImage} alt="textalImage" className="w-full" height={100} />
+          <h3 className="mt-2 text-lg font-semibold">Coping with anxiety is personal—what helps one person may not help another. It&apos;s about finding what calms you, whether that&apos;s running, yoga, or quiet meditation. Do what brings you peace..</h3>
         </div>
+
+        {/* Card 4 - AI content route */}
+        <div className="w-full max-w-[400px] flex flex-col text-center xl:shadow-xl xl:shadow-blue-300 hover:shadow-lg hover:shadow-green-500 p-4 rounded-xl bg-white">
+          <h2 className="mt-2 text-lg font-semibold">Custom pro version route</h2>
+          <Image src={aiContent} alt="aiContent" className="w-full h-[80px]" />
+          <h3 className="mt-2 text-lg font-semibold">AI integration in mental health apps enables personalized support through mood tracking, chatbot therapy, and behavior insights. It enhances user experience by offering timely, data-driven recommendations.</h3>
+        </div>
+
+
       </div>
-
+      <div className="relative top-4 xl:top-36">
+        <Footer />
+      </div>
     </div>
   );
 }
