@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const forgotCredentials = () => {
+const ForgotCredentials = () => {
 
   const [data, setData] = useState({
     email: "",
@@ -35,4 +35,4 @@ const forgotCredentials = () => {
   );
 };
 
-export default forgotCredentials;
+export default ForgotCredentials;
