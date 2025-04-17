@@ -14,12 +14,10 @@ export const HoverEffect = ({
     description: string;
     link: string;
     media?: {
-      type: "image" | "youtube" | "audio";
+      type: "image" | "youtube" | "audio" | "text";
       src: string;
     };
   }[];
-
-
   className?: string;
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -61,8 +59,6 @@ export const HoverEffect = ({
             <CardTitle>{item.title}</CardTitle>
             <CardDescription>{item.description}</CardDescription>
           </Card>
-
-
         </Link>
       ))}
     </div>
@@ -89,6 +85,7 @@ export const Card = ({
     </div>
   );
 };
+
 export const CardTitle = ({
   className,
   children,
@@ -102,6 +99,7 @@ export const CardTitle = ({
     </h4>
   );
 };
+
 export const CardDescription = ({
   className,
   children,
@@ -120,11 +118,12 @@ export const CardDescription = ({
     </p>
   );
 };
+
 export const CardMedia = ({
   media,
   className,
 }: {
-  media: { type: "image" | "youtube" | "audio"; src: string };
+  media: { type: "image" | "youtube" | "audio" | "text"; src: string };
   className?: string;
 }) => {
   return (
@@ -152,6 +151,11 @@ export const CardMedia = ({
           <source src={media.src} type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
+      )}
+      {media.type === "text" && (
+        <div className="p-4 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-xl">
+          <p>{media.src}</p>
+        </div>
       )}
     </div>
   );
