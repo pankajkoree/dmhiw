@@ -4,15 +4,30 @@ import Footer from "@/components/ui/Footer";
 import textalImage from "../../public/textualimage.jpg"
 import aiContent from "../../public/aicontent.png"
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter()
+
+  const gotoVideo = () => {
+    router.push("/videos")
+  }
+  const gotoAudio = () => {
+    router.push("/audios")
+  }
+  const gotTextual = () => {
+    router.push("/textual")
+  }
+  const gotoCustomProVersion = () => {
+    router.push("/custom-pro-version")
+  }
 
   return (
     <div className="relative flex flex-col justify-center items-center text-center gap-4">
-      <h1 className="relative flex top-4 lg:top-12 xl:top-16 uppercase text-xl lg:text-4xl xl:text-5xl font-bold">
+      <h1 className="relative flex top-4 lg:top-8 xl:top-12 uppercase text-xl lg:text-4xl xl:text-5xl font-bold">
         Digital Mental Health Interventions and Wellness
       </h1>
-      <h2 className="relative flex top-4 lg:top-12 xl:top-24 xl:text-3xl italic font-bold">
+      <h2 className="relative flex top-4 lg:top-12 xl:top-20 xl:text-3xl italic font-bold">
         Find your calm, anonymously. Explore deeper, personally
       </h2>
       <p className="relative flex top-4 xl:top-28 xl:text-2xl xl:w-[40%]">
@@ -23,9 +38,9 @@ export default function Home() {
         privacy you value
       </p>
 
-      <div className="relative top-4 lg:top-12 xl:top-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center mt-10 p-2 xl:p-0">
+      <div className="relative top-4 lg:top-12 xl:top-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center mt-10 p-2 xl:p-0">
         {/* Card 1 - Video content route */}
-        <div className="w-full max-w-[400px] flex flex-col text-center xl:shadow-xl xl:shadow-blue-300 hover:shadow-lg hover:shadow-green-500 p-4 rounded-xl">
+        <div className="w-full max-w-[400px] flex flex-col text-center xl:shadow-xl xl:shadow-blue-300 border border-green-300 hover:shadow-lg hover:shadow-green-500 p-4 rounded-xl hover:cursor-pointer" onClick={gotoVideo}>
           <h2 className="mt-2 text-lg font-semibold">Video route</h2>
           <iframe
             className="w-full rounded-lg"
@@ -40,7 +55,7 @@ export default function Home() {
 
 
         {/* Card 2 - Audio content route */}
-        <div className="w-full max-w-[400px] flex flex-col text-center xl:shadow-xl xl:shadow-blue-300 hover:shadow-lg hover:shadow-green-500 p-4 rounded-xl bg-white">
+        <div className="w-full max-w-[400px] flex flex-col text-center xl:shadow-xl xl:shadow-blue-300 border border-green-300 hover:shadow-lg hover:shadow-green-500 p-4 rounded-xl hover:cursor-pointer" onClick={gotoAudio}>
           <h2 className="mt-2 text-lg font-semibold">Audio route</h2>
           <iframe
             className="w-full rounded-lg"
@@ -53,14 +68,14 @@ export default function Home() {
         </div>
 
         {/* Card 3 - Textual content route*/}
-        <div className="w-full max-w-[400px] flex flex-col text-center xl:shadow-xl xl:shadow-blue-300 hover:shadow-lg hover:shadow-green-500 p-4 rounded-xl bg-white">
+        <div className="w-full max-w-[400px] flex flex-col text-center xl:shadow-xl xl:shadow-blue-300 border border-green-300 hover:shadow-lg hover:shadow-green-500 p-4 rounded-xl hover:cursor-pointer" onClick={gotTextual}>
           <h2 className="mt-2 text-lg font-semibold">Textual route</h2>
           <Image src={textalImage} alt="textalImage" className="w-full" height={100} />
           <h3 className="mt-2 text-lg font-semibold">Coping with anxiety is personal—what helps one person may not help another. It&apos;s about finding what calms you, whether that&apos;s running, yoga, or quiet meditation. Do what brings you peace..</h3>
         </div>
 
         {/* Card 4 - AI content route */}
-        <div className="w-full max-w-[400px] flex flex-col text-center xl:shadow-xl xl:shadow-blue-300 hover:shadow-lg hover:shadow-green-500 p-4 rounded-xl bg-white">
+        <div className="w-full max-w-[400px] flex flex-col text-center xl:shadow-xl xl:shadow-blue-300 border border-green-300 hover:shadow-lg hover:shadow-green-500 p-4 rounded-xl hover:cursor-pointer" onClick={gotoCustomProVersion}>
           <h2 className="mt-2 text-lg font-semibold">Custom pro version route</h2>
           <Image src={aiContent} alt="aiContent" className="w-full h-[80px]" />
           <h3 className="mt-2 text-lg font-semibold">AI integration in mental health apps enables personalized support through mood tracking, chatbot therapy, and behavior insights. It enhances user experience by offering timely, data-driven recommendations.</h3>
@@ -68,7 +83,7 @@ export default function Home() {
 
 
       </div>
-      <div className="relative top-4 xl:top-36">
+      <div className="relative top-4 xl:top-28">
         <Footer />
       </div>
     </div>
