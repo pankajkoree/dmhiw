@@ -34,7 +34,7 @@ const ForgotCredentials = () => {
           value={data.password}
           onChange={(e) => setData({ ...data, password: e.target.value })}
         />
-
+        {/* update password button */}
         <button type="submit">Update password</button>
       </form>
     </div>
