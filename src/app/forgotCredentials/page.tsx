@@ -14,7 +14,7 @@ const ForgotCredentials = () => {
 
   return (
     <div>
-      <p>Please enter your valid email to reset your password</p>
+      <p>Please enter your email to reset your password</p>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
         <input
