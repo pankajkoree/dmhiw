@@ -20,7 +20,9 @@ const ForgotCredentials = () => {
       <div className="relative flex flex-col justify-center items-center border p-2 xl:w-[22%] gap-4 rounded-xl hover:border-green-300">
         <div className="relative flex flex-col justify-center items-center w-full top-4">
           <Image src={userImage} alt="user" className="xl:w-[60px]" />
-          <p className="text-xl"> Enter your valid email to reset the password
+          <p className="text-xl">
+            {" "}
+            Enter your valid email to reset the password
           </p>
         </div>
 
