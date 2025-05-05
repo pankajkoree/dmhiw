@@ -12,7 +12,7 @@ const ForgotCredentials = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // handle password reset logic here
+    
   };
 
   return (
