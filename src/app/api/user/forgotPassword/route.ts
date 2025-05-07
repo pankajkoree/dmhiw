@@ -20,14 +20,15 @@ export const POST = async (request: NextRequest) => {
         { status: 400 }
       );
     }
-    if (user) {
-      user = { ...user, password: newPassword };
-      return NextResponse.json({
-        message: "Password reset successfully",
-        success: true,
-        user,
-      });
-    }
+
+    user.password = newPassword;
+    await user.save();
+
+    return NextResponse.json({
+      message: "Password reset successfully",
+      success: true,
+      user,
+    });
   } catch (error) {
     return NextResponse.json(
       {
