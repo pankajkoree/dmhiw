@@ -11,25 +11,23 @@ const Login = () => {
   const router = useRouter();
   const [user, setUser] = useState({
     email: "",
-    password: ""
-  })
+    password: "",
+  });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("/api/user/login", user)
+      const response = await axios.post("/api/user/login", user);
 
       if (response.status === 200 && response.data.user) {
-        toast.success("Login successful")
-        router.push("/custom-pro-version")
-
-      }
-      else {
-        toast.error("User not found")
+        toast.success("Login successful");
+        router.push("/custom-pro-version");
+      } else {
+        toast.error("User not found");
       }
     } catch (error) {
-      toast.error("Invalid credentials")
+      toast.error("Invalid credentials");
     }
   };
 

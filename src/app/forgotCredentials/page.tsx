@@ -5,8 +5,10 @@ import userImage from "../../../public/user.png";
 import Image from "next/image";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const ForgotCredentials = () => {
+  const router = useRouter();
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -19,6 +21,7 @@ const ForgotCredentials = () => {
       const response = await axios.post("/api/user/forgotPassword", data);
       if (response.status === 200 && response.data.user) {
         toast.success("Passoword reset successful");
+        router.push("/login");
       } else {
         toast.error("Email not found");
       }
