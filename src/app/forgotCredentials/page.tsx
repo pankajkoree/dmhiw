@@ -3,6 +3,8 @@
 import { useState } from "react";
 import userImage from "../../../public/user.png";
 import Image from "next/image";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 const ForgotCredentials = () => {
   const [data, setData] = useState({
@@ -10,8 +12,19 @@ const ForgotCredentials = () => {
     password: "",
   });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    try {
+      const response = await axios.post("/api/user/forgotPassword", data);
+      if (response.status === 200 && response.data.user) {
+        toast.success("Passoword reset successful");
+      } else {
+        toast.error("Email not found");
+      }
+    } catch (error) {
+      toast.error("Password reset failed");
+    }
   };
 
   return (
