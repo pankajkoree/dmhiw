@@ -87,7 +87,7 @@ const ForgotCredentials = () => {
           {/* password ends here */}
 
           {/* signup button starts here */}
-          <div className="">
+          <div>
             <button
               type="submit"
               className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-all duration-200 font-medium"
