@@ -78,7 +78,7 @@ const ForgotCredentials = () => {
               id="password"
               value={data.password}
               onChange={(e) => setData({ ...data, password: e.target.value })}
-              className="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="mt-1 w-full border border-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="enter new password"
               required
             />
