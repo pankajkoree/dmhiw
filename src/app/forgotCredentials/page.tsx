@@ -63,7 +63,7 @@ const ForgotCredentials = () => {
               required
             />
           </div>
-          {/* email end here */}
+          {/* email ends here */}
 
           {/* passowrd starts here */}
           <div>
