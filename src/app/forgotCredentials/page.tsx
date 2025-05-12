@@ -86,7 +86,7 @@ const ForgotCredentials = () => {
 
           {/* password ends here */}
 
-          {/* signup button starts here */}
+          {/* signup starts here */}
           <div>
             <button
               type="submit"
